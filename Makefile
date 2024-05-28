@@ -3,13 +3,13 @@ DOCK_COMP_FILE = ./srcs/docker-compose.yml
 all: build up
 
 build:
-	docker-compose -f $(DOCK_COMP_FILE) build
+	docker compose -f $(DOCK_COMP_FILE) build
 
 up:
-	docker-compose -f $(DOCK_COMP_FILE) up -d
+	docker compose -f $(DOCK_COMP_FILE) up -d
 
 down:
-	docker-compose -f $(DOCK_COMP_FILE) down
+	docker compose -f $(DOCK_COMP_FILE) down
 
 clean: down volumes_clean
 	docker system prune -f
@@ -19,11 +19,13 @@ volumes_clean:
 	sudo rm -rf /home/inception/data/mariadb/*
 	sudo rm -rf /home/inception/data/wordpress/*
 
+all_clean: clean prune volumes_clean
+
 stop:
-	docker-compose -f $(DOCK_COMP_FILE) stop
+	docker compose -f $(DOCK_COMP_FILE) stop
 
 rm:
-	docker-compose -f $(DOCK_COMP_FILE) rm -f
+	docker compose -f $(DOCK_COMP_FILE) rm -f
 
 volum:
 	sudo rm -rf /home/inception/data/mariadb/*

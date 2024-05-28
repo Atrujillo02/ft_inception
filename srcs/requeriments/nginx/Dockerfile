@@ -12,10 +12,12 @@ RUN apt install openssl -y
 RUN mkdir -p /etc/nginx/ssl
 
 # Generar un certificado SSL auto-firmado
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -subj "/C=SP/ST=MLG/L=Malaga/O=42/OU=42Malaga/CN=atrujill.42.fr/UID=atrujill"
+RUN openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout /etc/nginx/ssl/inception.key -subj "/C=SP/ST=MLG/L=Malaga/O=42/OU=42Malaga/CN=atrujill.42.fr/UID=atrujill"
+
+RUN mkdir -p /var/run/nginx
 
 # Copiar la configuración de NGINX personalizada
-COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 RUN chmod 755 /var/www/html
 

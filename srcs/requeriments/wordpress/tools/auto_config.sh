@@ -19,7 +19,7 @@ else
     sleep 2
 
     wp-cli.phar core install --allow-root \
-        --url=$DOMAIN_NAME \
+    	  --url=$DOMAIN_NAME \
         --title=$WP_TITLE \
         --admin_user=$WP_ADMIN_USER \
         --admin_password=$WP_ADMIN_PASSWORD \
