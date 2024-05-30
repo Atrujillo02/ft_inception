@@ -18,7 +18,6 @@ COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/www.conf
 
 RUN chown -R root:root /var/www/wordpress
 
-# Descarga e instala WP-CLI con wget
 RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp-cli.phar

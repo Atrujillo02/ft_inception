@@ -19,7 +19,7 @@ volumes_clean:
 	sudo rm -rf /home/inception/data/mariadb/*
 	sudo rm -rf /home/inception/data/wordpress/*
 
-all_clean: clean prune volumes_clean
+fclean: clean prune volumes_clean
 
 stop:
 	docker compose -f $(DOCK_COMP_FILE) stop
