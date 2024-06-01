@@ -1,5 +1,5 @@
 
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update && apt-get install -y apt-utils \
     && apt update -y && apt upgrade -y \
